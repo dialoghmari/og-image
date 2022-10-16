@@ -1,4 +1,4 @@
-import { Canvas, GlobalFonts } from "@napi-rs/canvas";
+import { Canvas } from "@napi-rs/canvas";
 import { explode, imageRatio, MIME_MAP, SUPPORTED_ENCODING } from "lib";
 import type { NextApiRequest, NextApiResponse } from "next";
 
@@ -17,10 +17,8 @@ export default async function handler(
   context.fillStyle = "#0e1111";
   context.fillRect(0, 0, width, height);
 
-  /* Register fonts */
-  GlobalFonts.registerFromPath("./AppleColorEmoji@2x.ttf", "Apple Emoji");
   /* Adding tiitle's text */
-  context.font = `bold ${fontSize}px Apple Emoji`;
+  context.font = `bold ${fontSize}px Ubuntu`;
   context.textAlign = "center";
   context.textBaseline = "top";
   context.fillStyle = "#fff";
@@ -37,7 +35,7 @@ export default async function handler(
   /* Adding signature  */
   if (req.query.signature) {
     context.fillStyle = "#fff";
-    context.font = "bold 24px Apple Emoji";
+    context.font = "bold 24px Ubuntu";
     context.fillText(String(req.query.signature), width / 2, height - 48);
   }
 
