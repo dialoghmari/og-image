@@ -136,6 +136,19 @@ const Home: NextPage = () => {
           </section>
         </div>
       </main>
+      <footer className={styles.footer}>
+        <p>
+          Feel free to contribute:{" "}
+          <a
+            href="https://github.com/dialoghmari/og-image"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.github}
+          >
+            Github repo
+          </a>
+        </p>
+      </footer>
     </>
   );
 };

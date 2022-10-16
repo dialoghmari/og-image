@@ -1,5 +1,4 @@
 .main {
-  min-height: 100vh;
   padding: 4rem 0;
   flex: 1;
   display: flex;
@@ -83,4 +82,14 @@
   width: 100%;
   min-height: 140px;
   font-family: "Courier New", Courier, monospace;
+}
+
+.footer {
+  text-align: center;
+}
+.footer p {
+  font-weight: 500;
+}
+.github {
+  font-weight: bold;
 }

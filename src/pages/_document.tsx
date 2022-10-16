@@ -12,11 +12,11 @@ export default function Document() {
         <meta property="og:title" content="Open Graph Image as a Service" />
         <meta
           name="description"
-          content="A service to generate dynamic Open Graph images."
+          content="Serverless service that generates dynamic Open Graph images that you can embed in your <meta> tags. Based on canvas."
         />
         <meta
           property="og:description"
-          content="A service to generate dynamic Open Graph images."
+          content="Serverless service that generates dynamic Open Graph images that you can embed in your <meta> tags. Based on canvas."
         />
         <meta property="og:type" content="website" />
         <meta
