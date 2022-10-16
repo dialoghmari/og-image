@@ -9,12 +9,18 @@ export default function Document() {
         <meta name="twitter:site" content="@dialoghmari" />
         <meta name="keywords" content="SEO, Open Graph" />
         <meta name="author" content="Dia Loghmari" />
+        <meta property="og:title" content="Open Graph Image as a Service" />
         <meta
           name="description"
           content="A service to generate dynamic Open Graph images."
         />
         <meta
-          property="og:image"
+          property="og:description"
+          content="A service to generate dynamic Open Graph images."
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image:url"
           content={getImageUrl({
             title: "Open Graph Image as a Service",
             signature: "Made by Dia Loghmari with ❤",

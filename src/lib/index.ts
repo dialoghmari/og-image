@@ -63,3 +63,7 @@ export const MIME_MAP: Record<string, string> = {
 };
 
 export const SUPPORTED_ENCODING = new Set(["png", "avif", "webp", "jpeg"]);
+
+export const canonical = (path: string) =>
+  new URL(path, process.env.NEXT_PUBLIC_VERCEL_URL || "http://localhost:3000")
+    .href;

@@ -3,7 +3,7 @@ import Button from "components/Button";
 import SelectField from "components/SelectField";
 import TextArea from "components/TextArea";
 import TextField from "components/TextField";
-import { getImageUrl, MIME_MAP, OGQuery } from "lib";
+import { canonical, getImageUrl, MIME_MAP, OGQuery } from "lib";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { FormEvent, useRef, useState } from "react";
@@ -31,6 +31,7 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>Open Graph Image as a Service</title>
+        <link rel="canonical" href={canonical("")} />
       </Head>
       <main
         role="main"
