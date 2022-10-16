@@ -3,7 +3,7 @@ export const imageRatio: number = 630 / 1200;
 export type OGQuery = {
   title: string;
   signature?: string;
-  type?: "png" | "jpeg";
+  type?: "png" | "avif" | "webp" | "jpeg";
 };
 
 export function getImageUrl(params: OGQuery): string {

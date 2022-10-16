@@ -17,10 +17,11 @@ export default function Document() {
           property="og:image"
           content={getImageUrl({
             title: "Open Graph Image as a Service",
-            signature: "Made by Dia Loghmari with 🧡",
+            signature: "Made by Dia Loghmari with ❤",
+            type: "webp",
           })}
         />
-        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:type" content="image/webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Open Graph Image as a Service" />

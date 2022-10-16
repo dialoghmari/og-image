@@ -3,7 +3,7 @@ import Button from "components/Button";
 import SelectField from "components/SelectField";
 import TextArea from "components/TextArea";
 import TextField from "components/TextField";
-import { getImageUrl, OGQuery } from "lib";
+import { getImageUrl, MIME_MAP, OGQuery } from "lib";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { FormEvent, useRef, useState } from "react";
@@ -59,11 +59,12 @@ const Home: NextPage = () => {
                 name="type"
                 label="File type"
                 inputClassName={styles.fullWidth}
+                defaultValue="webp"
               >
                 <option value="jpeg">JPEG</option>
+                <option value="webp">WEBP</option>
                 <option value="png">PNG</option>
                 <option value="avif">AVIF</option>
-                <option value="webp">WEBP</option>
               </SelectField>
               <Button type="submit">Try</Button>
             </form>
@@ -125,9 +126,7 @@ const Home: NextPage = () => {
               value={`<meta property="og:image" content="${getImageUrl(
                 query
               )}" />
-<meta property="og:image:type" content="${
-                query.type == "jpeg" ? "image/jpeg" : "image/png"
-              }" />
+<meta property="og:image:type" content="${MIME_MAP[query.type || "webp"]}" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="${query.title}" />`}
