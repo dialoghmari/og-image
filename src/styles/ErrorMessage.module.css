@@ -1,0 +1,17 @@
+.errorMessage {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+  color: var(--error-color);
+}
+
+.errorMessage p {
+  margin: 0;
+  font-size: small;
+  margin-top: 3px;
+  font-weight: 400;
+  padding-right: 0.25rem;
+}

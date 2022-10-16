@@ -1,0 +1,9 @@
+.inputBase {
+  display: inline-flex;
+  border-radius: 0.25rem;
+  position: relative;
+  box-sizing: border-box;
+  align-items: center;
+
+  margin-top: 0.25rem;
+}

@@ -1,0 +1,83 @@
+.main {
+  min-height: 100vh;
+  padding: 4rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.appPreview {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0.75rem;
+}
+@media (min-width: 1024px) {
+  .appPreview {
+    flex-wrap: nowrap;
+    padding: 1.5rem;
+
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 8px;
+    border-color: #e2e2e2;
+    border-style: solid;
+    border-width: 2px;
+  }
+}
+
+.formContainer {
+  width: 100%;
+  display: inline-block;
+}
+@media (min-width: 1024px) {
+  .formContainer {
+    min-width: 50%;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.resultContainer {
+  min-width: 50%;
+}
+
+.imageWrapper {
+  display: block;
+  box-shadow: 0px 1px 5px 0px rgb(0 0 0 / 12%);
+  border-radius: 5px;
+  transition: all 0.2s ease;
+  max-width: 100%;
+}
+
+.image {
+  aspect-ratio: 1200/630;
+  max-width: 100%;
+  transition: all 0.3s ease-in 0s;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-content: center;
+  margin-top: 0.5rem;
+}
+
+.code {
+  width: 100%;
+  min-height: 140px;
+  font-family: "Courier New", Courier, monospace;
+}
