@@ -1,12 +1,14 @@
-import { Canvas } from "@napi-rs/canvas";
+import { Canvas, GlobalFonts } from "@napi-rs/canvas";
 import { explode, imageRatio, MIME_MAP, SUPPORTED_ENCODING } from "lib";
 import type { NextApiRequest, NextApiResponse } from "next";
+import { join } from "path";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   /* Init the context */
+  const fontSize: number = 45;
   const width: number = 1200;
   const height: number = width * imageRatio; /* 630 */
   const canvas = new Canvas(width, height);
@@ -16,20 +18,32 @@ export default async function handler(
   context.fillStyle = "#0e1111";
   context.fillRect(0, 0, width, height);
 
+  /* Register fonts */
+  GlobalFonts.registerFromPath(
+    join(__dirname, "..", "fonts", "AppleColorEmoji@2x.ttf"),
+    "Apple Emoji"
+  );
+
   /* Adding tiitle's text */
-  context.font = "bold 45pt Arial";
+  context.font = `bold ${fontSize}px Apple Emoji`;
   context.textAlign = "center";
   context.textBaseline = "top";
-  const title = explode((req.query.title as string) || "Hello \n world 👋", 40);
-  const numberOfLine = (title.match(new RegExp("\n", "g")) || []).length + 1;
   context.fillStyle = "#fff";
-  context.fillText(title, 600, 630 / 2 - 45 * numberOfLine);
+  const title = explode((req.query.title as string) || "Hello world 👋", 45);
+  let lines = title.split("\n");
+  for (let i = 0; i < lines.length; i++) {
+    context.fillText(
+      lines[i].trim(),
+      width / 2,
+      (height - 48) / 2 - fontSize * (lines.length / 2) + i * fontSize
+    );
+  }
 
   /* Adding signature  */
   if (req.query.signature) {
     context.fillStyle = "#fff";
-    context.font = "bold 18pt Arial";
-    context.fillText(String(req.query.signature), 600, 530);
+    context.font = "bold 24px Apple Emoji";
+    context.fillText(String(req.query.signature), width / 2, height - 48);
   }
 
   /* Render */
