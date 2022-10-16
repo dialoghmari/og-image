@@ -54,3 +54,12 @@ export function explode(text: string, max: number): string {
     return line + "\n" + explode(rest, max);
   }
 }
+
+export const MIME_MAP: Record<string, string> = {
+  png: "image/png",
+  avif: "image/avif",
+  webp: "image/webp",
+  jpeg: "image/jpeg",
+};
+
+export const SUPPORTED_ENCODING = new Set(["png", "avif", "webp", "jpeg"]);

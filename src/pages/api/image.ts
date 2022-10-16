@@ -1,5 +1,5 @@
-import { createCanvas } from "canvas";
-import { explode, imageRatio } from "lib";
+import { Canvas } from "@napi-rs/canvas";
+import { explode, imageRatio, MIME_MAP, SUPPORTED_ENCODING } from "lib";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(
@@ -9,7 +9,7 @@ export default async function handler(
   /* Init the context */
   const width: number = 1200;
   const height: number = width * imageRatio; /* 630 */
-  const canvas = createCanvas(width, height);
+  const canvas = new Canvas(width, height);
   const context = canvas.getContext("2d");
 
   /* Init the background */
@@ -20,7 +20,7 @@ export default async function handler(
   context.font = "bold 45pt Arial";
   context.textAlign = "center";
   context.textBaseline = "top";
-  const title = explode((req.query.title as string) || "Hello world 👋", 40);
+  const title = explode((req.query.title as string) || "Hello \n world 👋", 40);
   const numberOfLine = (title.match(new RegExp("\n", "g")) || []).length + 1;
   context.fillStyle = "#fff";
   context.fillText(title, 600, 630 / 2 - 45 * numberOfLine);
@@ -33,16 +33,21 @@ export default async function handler(
   }
 
   /* Render */
-  const type = req.query.type as string;
-  const buffer =
-    type == "png"
-      ? canvas.toBuffer("image/png")
-      : canvas.toBuffer("image/jpeg");
-  res.statusCode = 200;
-  res.setHeader("Content-Type", type == "png" ? `image/png` : `image/jpeg`);
+  const { type = "png" } = req.query;
+  let encodeType: "png" | "webp" | "avif";
+  if (typeof type === "string" && SUPPORTED_ENCODING.has(type)) {
+    // @ts-expect-error
+    encodeType = type;
+  } else {
+    encodeType = "png";
+  }
+  // @ts-expect-error
+  const buffer = await canvas.encode(encodeType);
+  res.setHeader("Content-Type", MIME_MAP[encodeType]);
+  res.setHeader("Content-Disposition", "inline");
   res.setHeader(
     "Cache-Control",
     `public, immutable, no-transform, s-maxage=31536000, max-age=31536000`
   );
-  res.end(buffer);
+  res.send(buffer);
 }

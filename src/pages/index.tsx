@@ -62,6 +62,8 @@ const Home: NextPage = () => {
               >
                 <option value="jpeg">JPEG</option>
                 <option value="png">PNG</option>
+                <option value="avif">AVIF</option>
+                <option value="webp">WEBP</option>
               </SelectField>
               <Button type="submit">Try</Button>
             </form>
