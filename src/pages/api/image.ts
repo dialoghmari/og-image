@@ -1,7 +1,6 @@
 import { Canvas, GlobalFonts } from "@napi-rs/canvas";
 import { explode, imageRatio, MIME_MAP, SUPPORTED_ENCODING } from "lib";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { join } from "path";
 
 export default async function handler(
   req: NextApiRequest,
@@ -19,11 +18,7 @@ export default async function handler(
   context.fillRect(0, 0, width, height);
 
   /* Register fonts */
-  GlobalFonts.registerFromPath(
-    join(__dirname, "..", "fonts", "AppleColorEmoji@2x.ttf"),
-    "Apple Emoji"
-  );
-
+  GlobalFonts.registerFromPath("./AppleColorEmoji@2x.ttf", "Apple Emoji");
   /* Adding tiitle's text */
   context.font = `bold ${fontSize}px Apple Emoji`;
   context.textAlign = "center";
