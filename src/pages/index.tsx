@@ -12,6 +12,7 @@ import styles from "styles/Home.module.css";
 const Home: NextPage = () => {
   const [query, setQuery] = useState<OGQuery>({
     title: "Open Graph Image as a Service",
+    type: "png",
   });
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -60,11 +61,11 @@ const Home: NextPage = () => {
                 name="type"
                 label="File type"
                 inputClassName={styles.fullWidth}
-                defaultValue="webp"
+                defaultValue="png"
               >
+                <option value="png">PNG</option>
                 <option value="jpeg">JPEG</option>
                 <option value="webp">WEBP</option>
-                <option value="png">PNG</option>
                 <option value="avif">AVIF</option>
               </SelectField>
               <Button type="submit">Try</Button>
@@ -127,7 +128,7 @@ const Home: NextPage = () => {
               value={`<meta property="og:image" content="${getImageUrl(
                 query
               )}" />
-<meta property="og:image:type" content="${MIME_MAP[query.type || "webp"]}" />
+<meta property="og:image:type" content="${MIME_MAP[query.type || "png"]}" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="${query.title}" />`}

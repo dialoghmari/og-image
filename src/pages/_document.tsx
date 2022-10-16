@@ -24,10 +24,10 @@ export default function Document() {
           content={getImageUrl({
             title: "Open Graph Image as a Service",
             signature: "Made by Dia Loghmari with ❤",
-            type: "webp",
+            type: "png",
           })}
         />
-        <meta property="og:image:type" content="image/webp" />
+        <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Open Graph Image as a Service" />
