@@ -4,6 +4,8 @@ export type OGQuery = {
   title: string;
   signature?: string;
   type?: "png" | "avif" | "webp" | "jpeg";
+  color?: string;
+  backgroundColor?: string;
 };
 
 export function getImageUrl(params: OGQuery): string {
@@ -19,6 +21,12 @@ export function getImageUrl(params: OGQuery): string {
   }
   if (params.signature) {
     url.searchParams.append("signature", params.signature);
+  }
+  if (params.color) {
+    url.searchParams.append("color", params.color);
+  }
+  if (params.backgroundColor) {
+    url.searchParams.append("backgroundColor", params.backgroundColor);
   }
   return url.href;
 }

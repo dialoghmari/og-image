@@ -3,7 +3,7 @@ import Button from "components/Button";
 import SelectField from "components/SelectField";
 import TextArea from "components/TextArea";
 import TextField from "components/TextField";
-import { canonical, getImageUrl, MIME_MAP, OGQuery } from "lib";
+import { canonical, getImageUrl, imageRatio, MIME_MAP, OGQuery } from "lib";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { FormEvent, useRef, useState } from "react";
@@ -23,6 +23,8 @@ const Home: NextPage = () => {
       title: form.title.value,
       signature: form.signature.value,
       type: form.type.value,
+      color: form.color.value,
+      backgroundColor: form.backgroundColor.value,
     };
     setQuery(query);
     buttonRef.current?.focus();
@@ -68,6 +70,22 @@ const Home: NextPage = () => {
                 <option value="webp">WEBP</option>
                 <option value="avif">AVIF</option>
               </SelectField>
+              <TextField
+                name="color"
+                label="Text color"
+                inputClassName={styles.fullWidth}
+                enterKeyHint="next"
+                type="color"
+                defaultValue="#ffffff"
+              />
+              <TextField
+                name="backgroundColor"
+                label="Background color"
+                inputClassName={styles.fullWidth}
+                enterKeyHint="next"
+                type="color"
+                defaultValue="#0f1110"
+              />
               <Button type="submit">Try</Button>
             </form>
           </section>
@@ -75,6 +93,8 @@ const Home: NextPage = () => {
             <div className={styles.imageWrapper}>
               <img
                 alt="Result"
+                width={1200}
+                height={1200 * imageRatio}
                 className={styles.image}
                 src={getImageUrl(query)}
               />
