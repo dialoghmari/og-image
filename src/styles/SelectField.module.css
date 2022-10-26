@@ -19,7 +19,7 @@
   letter-spacing: inherit;
   animation-duration: 10ms;
   -webkit-tap-highlight-color: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--border-color);
   padding: 10px 12px;
   font-size: 1rem;
   border-radius: 4px;
@@ -31,4 +31,14 @@
 .select[aria-invalid="true"]:focus-visible {
   border-color: var(--error-color);
   outline: var(--error-color) auto 1px;
+}
+
+.select option {
+  background-color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  .select option {
+    background-color: black;
+  }
 }

@@ -19,7 +19,7 @@
   letter-spacing: inherit;
   animation-duration: 10ms;
   -webkit-tap-highlight-color: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--border-color);
   padding: 10px 12px;
   font-size: 1rem;
   border-radius: 4px;
@@ -32,8 +32,8 @@
 .textarea:focus,
 .input:focus-visible,
 .textarea:focus-visible {
-  border-color: var(--primary-500-color);
-  outline: var(--primary-500-color) auto 1px;
+  border-color: var(--primary-color);
+  outline: var(--primary-color) auto 1px;
 }
 .input[aria-invalid="true"]:focus,
 .textarea[aria-invalid="true"]:focus,

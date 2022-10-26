@@ -125,14 +125,14 @@ const Home: NextPage = () => {
                       rx="1"
                       transform="translate(16.5 16.5) rotate(180)"
                       fill="none"
-                      stroke="#fdfdfd"
+                      stroke="currentColor"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     ></rect>
                     <path
                       d="M.5,10.5v-9a1,1,0,0,1,1-1h9"
                       fill="none"
-                      stroke="#fdfdfd"
+                      stroke="currentColor"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     ></path>

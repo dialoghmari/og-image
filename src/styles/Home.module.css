@@ -26,9 +26,14 @@
     box-sizing: border-box;
     overflow: hidden;
     border-radius: 8px;
-    border-color: #e2e2e2;
+    border-color: var(--border-color);
     border-style: solid;
     border-width: 2px;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .appPreview {
+    background: black;
   }
 }
 
