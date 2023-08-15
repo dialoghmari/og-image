@@ -1,14 +1,11 @@
-import React from "react";
-import styles from "styles/ErrorMessage.module.css";
+import React from 'react';
+import styles from 'styles/ErrorMessage.module.css';
 
 function ErrorMessage({
   className,
   children,
   ...rest
-}: React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLParagraphElement>,
-  HTMLParagraphElement
->) {
+}: React.DetailedHTMLProps<React.HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>) {
   return (
     <div className={styles.errorMessage}>
       <p className="text-xs" {...rest}>

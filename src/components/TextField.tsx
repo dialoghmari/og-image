@@ -1,16 +1,12 @@
-import clsx from "clsx";
-import React, { ReactElement } from "react";
-import styles from "styles/TextField.module.css";
-import ErrorMessage from "./ErrorMessage";
-import HelperText from "./HelperText";
-import InputBase from "./InputBase";
-import Label from "./Label";
+import clsx from 'clsx';
+import React, { ReactElement } from 'react';
+import styles from 'styles/TextField.module.css';
+import ErrorMessage from './ErrorMessage';
+import HelperText from './HelperText';
+import InputBase from './InputBase';
+import Label from './Label';
 
-export interface TextFieldProps
-  extends React.DetailedHTMLProps<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    HTMLInputElement
-  > {
+export interface TextFieldProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
   name: string;
   label: React.ReactNode;
   helperText?: string;
@@ -41,25 +37,24 @@ export default function TextField({
   errorMessageClassName,
   inputMode,
   enterKeyHint,
-  type = "text",
+  type = 'text',
   ...rest
 }: TextFieldProps): ReactElement {
   const inputId = id || name;
-  const helperTextId = helperText && inputId ? `${inputId}-helper-text` : "";
-  const errorMessageId =
-    errorMessage && inputId ? `${inputId}-error-message` : "";
+  const helperTextId = helperText && inputId ? `${inputId}-helper-text` : '';
+  const errorMessageId = errorMessage && inputId ? `${inputId}-error-message` : '';
   const inputLabelId = label && inputId ? `${inputId}-label` : undefined;
   const customInputMode =
     inputMode ||
-    (type === "tel" && "tel") ||
-    (type === "email" && "email") ||
-    (type === "url" && "url") ||
-    (type === "number" && "numeric") ||
+    (type === 'tel' && 'tel') ||
+    (type === 'email' && 'email') ||
+    (type === 'url' && 'url') ||
+    (type === 'number' && 'numeric') ||
     undefined;
   return (
     <div className={clsx(styles.textField, className)}>
       <Label htmlFor={inputId} id={inputLabelId} className={labelClassName}>
-        {label} {required && " *"}
+        {label} {required && ' *'}
       </Label>
       {helperText && (
         <HelperText className={helperTextClassName} id={helperTextId}>
@@ -82,9 +77,7 @@ export default function TextField({
           enterKeyHint={enterKeyHint}
         />
       </InputBase>
-      {errorMessage && (
-        <ErrorMessage id={errorMessageId}>{errorMessage}</ErrorMessage>
-      )}
+      {errorMessage && <ErrorMessage id={errorMessageId}>{errorMessage}</ErrorMessage>}
     </div>
   );
 }

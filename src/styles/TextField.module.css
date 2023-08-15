@@ -35,10 +35,10 @@
   border-color: var(--primary-color);
   outline: var(--primary-color) auto 1px;
 }
-.input[aria-invalid="true"]:focus,
-.textarea[aria-invalid="true"]:focus,
-.input[aria-invalid="true"]:focus-visible,
-.textarea[aria-invalid="true"]:focus-visible {
+.input[aria-invalid='true']:focus,
+.textarea[aria-invalid='true']:focus,
+.input[aria-invalid='true']:focus-visible,
+.textarea[aria-invalid='true']:focus-visible {
   border-color: var(--error-color);
   outline: var(--error-color) auto 1px;
 }

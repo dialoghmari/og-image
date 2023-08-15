@@ -1,5 +1,5 @@
-import { getImageUrl } from "lib";
-import { Head, Html, Main, NextScript } from "next/document";
+import { getImageUrl } from 'lib';
+import { Head, Html, Main, NextScript } from 'next/document';
 
 export default function Document() {
   return (
@@ -22,9 +22,9 @@ export default function Document() {
         <meta
           property="og:image:url"
           content={getImageUrl({
-            title: "Open Graph Image as a Service",
-            signature: "Made by Dia Loghmari with ❤",
-            type: "png",
+            title: 'Open Graph Image as a Service',
+            signature: 'Made by Dia Loghmari with ❤',
+            type: 'png',
           })}
         />
         <meta property="og:image:type" content="image/png" />

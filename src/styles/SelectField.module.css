@@ -27,8 +27,8 @@
 .select:not([multiple]):not([size]) {
   height: 1.1876em;
 }
-.select[aria-invalid="true"]:focus,
-.select[aria-invalid="true"]:focus-visible {
+.select[aria-invalid='true']:focus,
+.select[aria-invalid='true']:focus-visible {
   border-color: var(--error-color);
   outline: var(--error-color) auto 1px;
 }

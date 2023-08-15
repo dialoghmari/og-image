@@ -1,16 +1,13 @@
-import clsx from "clsx";
-import React, { ReactElement } from "react";
-import styles from "styles/SelectField.module.css";
-import ErrorMessage from "./ErrorMessage";
-import HelperText from "./HelperText";
-import InputBase from "./InputBase";
-import Label from "./Label";
+import clsx from 'clsx';
+import React, { ReactElement } from 'react';
+import styles from 'styles/SelectField.module.css';
+import ErrorMessage from './ErrorMessage';
+import HelperText from './HelperText';
+import InputBase from './InputBase';
+import Label from './Label';
 
 export interface SelectFieldProps
-  extends React.DetailedHTMLProps<
-    React.SelectHTMLAttributes<HTMLSelectElement>,
-    HTMLSelectElement
-  > {
+  extends React.DetailedHTMLProps<React.SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement> {
   name: string;
   label: string;
   helperText?: string;
@@ -22,7 +19,7 @@ export interface SelectFieldProps
   helperTextClassName?: string;
   errorMessageClassName?: string;
   required?: boolean;
-  align?: "start" | "end" | "center";
+  align?: 'start' | 'end' | 'center';
 }
 
 function SelectField({
@@ -41,19 +38,18 @@ function SelectField({
   helperTextClassName,
   errorMessageClassName,
   inputMode,
-  align = "start",
+  align = 'start',
   children,
   ...rest
 }: React.PropsWithChildren<SelectFieldProps>): ReactElement {
   const inputId = id || name;
-  const helperTextId = helperText && inputId ? `${inputId}-helper-text` : "";
-  const errorMessageId =
-    errorMessage && inputId ? `${inputId}-error-message` : "";
+  const helperTextId = helperText && inputId ? `${inputId}-helper-text` : '';
+  const errorMessageId = errorMessage && inputId ? `${inputId}-error-message` : '';
   const inputLabelId = label && inputId ? `${inputId}-label` : undefined;
   return (
     <div className={clsx(styles.selectField, className)}>
       <Label htmlFor={inputId} id={inputLabelId} className={labelClassName}>
-        {label} {required && " *"}
+        {label} {required && ' *'}
       </Label>
       {helperText && (
         <HelperText className={helperTextClassName} id={helperTextId}>
@@ -75,9 +71,7 @@ function SelectField({
           {children}
         </select>
       </InputBase>
-      {errorMessage && (
-        <ErrorMessage id={errorMessageId}>{errorMessage}</ErrorMessage>
-      )}
+      {errorMessage && <ErrorMessage id={errorMessageId}>{errorMessage}</ErrorMessage>}
     </div>
   );
 }

@@ -1,16 +1,13 @@
-import clsx from "clsx";
-import React, { ReactElement } from "react";
-import styles from "styles/TextField.module.css";
-import ErrorMessage from "./ErrorMessage";
-import HelperText from "./HelperText";
-import InputBase from "./InputBase";
-import Label from "./Label";
+import clsx from 'clsx';
+import React, { ReactElement } from 'react';
+import styles from 'styles/TextField.module.css';
+import ErrorMessage from './ErrorMessage';
+import HelperText from './HelperText';
+import InputBase from './InputBase';
+import Label from './Label';
 
 export interface TextAreaProps
-  extends React.DetailedHTMLProps<
-    React.TextareaHTMLAttributes<HTMLTextAreaElement>,
-    HTMLTextAreaElement
-  > {
+  extends React.DetailedHTMLProps<React.TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement> {
   name: string;
   label: React.ReactNode;
   helperText?: string;
@@ -43,14 +40,13 @@ export default function TextArea({
   ...rest
 }: TextAreaProps): ReactElement {
   const inputId = id || name;
-  const helperTextId = helperText && inputId ? `${inputId}-helper-text` : "";
-  const errorMessageId =
-    errorMessage && inputId ? `${inputId}-error-message` : "";
+  const helperTextId = helperText && inputId ? `${inputId}-helper-text` : '';
+  const errorMessageId = errorMessage && inputId ? `${inputId}-error-message` : '';
   const inputLabelId = label && inputId ? `${inputId}-label` : undefined;
   return (
     <div className={clsx(styles.textField, className)}>
       <Label htmlFor={inputId} id={inputLabelId} className={labelClassName}>
-        {label} {required && " *"}
+        {label} {required && ' *'}
       </Label>
       {helperText && (
         <HelperText className={helperTextClassName} id={helperTextId}>
@@ -70,9 +66,7 @@ export default function TextArea({
           className={clsx(styles.input, inputClassName)}
         />
       </InputBase>
-      {errorMessage && (
-        <ErrorMessage id={errorMessageId}>{errorMessage}</ErrorMessage>
-      )}
+      {errorMessage && <ErrorMessage id={errorMessageId}>{errorMessage}</ErrorMessage>}
     </div>
   );
 }
